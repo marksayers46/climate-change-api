@@ -28,7 +28,7 @@ app.get('/news', (req,res) => {
                 })
             })
             res.json(articles)
-        })
+        }).catch((err) => console.log(err))
 })
 
 app.listen(PORT, () => console.log(`PORT is running on: ${PORT}`))
