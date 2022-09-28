@@ -1,11 +1,28 @@
+const PORT = 8000
 const cheerio = require('cheerio')
 const express = require('express')
 const axios = require('axios')
 
-const PORT = 8000
-
 const app = express()
 
+const newspapers = [
+    {
+        name: 'insideClimateNews',
+        address: 'https://insideclimatenews.org/',
+    },
+    {
+        name: 'nasa',
+        address: 'https://climate.nasa.gov/news/?page=0&per_page=40&order=publish_date+desc%2C+created_at+desc&search=&category=19%2C98',
+    },
+    {
+        name: 'guardian',
+        address: 'https://www.thegurdian.com/environment/climate-crisis',
+    },
+    {
+        name: 'thetimes',
+        address: 'https://www.thetimes.co.uk/environment/climate-change',
+    }
+]
 const articles = []
 
 app.get('/', (req,res) => {
